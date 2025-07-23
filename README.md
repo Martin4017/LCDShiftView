@@ -4,7 +4,7 @@ Control HD44780-compatible LCD displays using a 74HC595 shift register on Arduin
 
 ---
 
-## 📚 Overview
+##  Overview
 
 `LCDShiftView` is a lightweight and flexible Arduino library that allows you to control LCD displays (based on the HD44780 controller) using only **one shift register (74HC595)**. This helps reduce the number of I/O pins required while still giving you full control over the LCD including:
 
@@ -15,7 +15,7 @@ Control HD44780-compatible LCD displays using a 74HC595 shift register on Arduin
 
 ---
 
-## 📦 Features
+##  Features
 
 - Supports 16x2, 20x4, and other standard HD44780 LCDs
 - Assign any LCD pin (RS, E, D4–D7, Backlight) to any shift register output
@@ -26,7 +26,7 @@ Control HD44780-compatible LCD displays using a 74HC595 shift register on Arduin
 
 ---
 
-## 🔌 Wiring Example
+##  Wiring Example
 
 **LCD** connected to **74HC595**:
 
@@ -51,9 +51,3 @@ Control HD44780-compatible LCD displays using a 74HC595 shift register on Arduin
 *You can change all pin assignments in code.*
 
 ---
-
-## 🔧 Installation
-
-### 📁 Manual
-
-1. Download or clone the repository:
