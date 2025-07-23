@@ -41,7 +41,7 @@ const int dataPin  = 10; // DS connected to pin D10 on Arduino
 const int clockPin = 11; // SHCP connected to pin D11 on Arduino
 const int latchPin = 12; // STCP connected to pin D12 on Arduino
 
-LCDShiftView lcd(dataPin, clockPin, latchPin); pin out of 74HC595
+LCDShiftView lcd(dataPin, clockPin, latchPin); // pin out of 74HC595
 
 // setPins(0, 1, 2, 3, 4, 5)   // Use This command to change the defalt pin connection of LCD
 //       (RS, E, D4, D5, D6, D7)
