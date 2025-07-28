@@ -1,53 +1,133 @@
 # LCDShiftView
 
-Control HD44780-compatible LCD displays using a 74HC595 shift register on Arduino with flexible pin mapping and full feature access.
+`LCDShiftView` is an Arduino library that allows you to control standard HD44780-based LCD displays using a single 74HC595 shift register. This helps you save precious I/O pins and gives you full flexibility to define which shift register outputs are connected to which LCD pins.
 
 ---
 
-##  Overview
+## Features
 
-`LCDShiftView` is a lightweight and flexible Arduino library that allows you to control LCD displays (based on the HD44780 controller) using only **one shift register (74HC595)**. This helps reduce the number of I/O pins required while still giving you full control over the LCD including:
-
-- Custom character support
-- Backlight control
-- Cursor and display control
-- Flexible mapping of LCD pins to any shift register output (S0–S7)
-
----
-
-##  Features
-
-- Supports 16x2, 20x4, and other standard HD44780 LCDs
-- Assign any LCD pin (RS, E, D4–D7, Backlight) to any shift register output
-- Control LCD with just 3 Arduino pins (Data, Clock, Latch)
-- Fully compatible with the official `LiquidCrystal` API
-- Supports custom characters and symbols
-- Open-source and easy to extend
+- Control LCD (16x2, 20x4...) via **shift register (74HC595)**.
+- Define any pin mapping from the shift register (O0–O7) to LCD pins.
+- Default mapping is:
+  - RS → O0
+  - E   → O1
+  - D4 → O2
+  - D5 → O3
+  - D6 → O4
+  - D7 → O5
+- Built-in support for:
+  - Custom characters.
+  - Different LCD sizes.
+  - Clear and easy API similar to LiquidCrystal.
 
 ---
 
-##  Wiring Example
+## Installation
 
-**LCD** connected to **74HC595**:
+### Via Library Manager
 
-| LCD Pin | Description | Connect to 74HC595 |
-|---------|-------------|--------------------|
-| RS      | Register Select | S0 |
-| E       | Enable           | S1 |
-| D4      | Data Bit 4       | S2 |
-| D5      | Data Bit 5       | S3 |
-| D6      | Data Bit 6       | S4 |
-| D7      | Data Bit 7       | S5 |
-| BL      | Backlight (optional) | S6 |
+1. Open **Arduino IDE**.
+2. Go to **Sketch → Include Library → Manage Libraries**.
+3. Search for **LCDShiftView**.
+4. Click **Install**.
 
-**Shift Register (74HC595)** connected to Arduino:
+### Manual Installation
 
-| 74HC595 Pin | Connect to Arduino |
-|-------------|--------------------|
-| DS          | Data pin (e.g., 8) |
-| SHCP        | Clock pin (e.g., 12) |
-| STCP        | Latch pin (e.g., 10) |
-
-*You can change all pin assignments in code.*
+1. Download the library from GitHub:  
+   [https://github.com/Martin4017/LCDShiftView](https://github.com/Martin4017/LCDShiftView)
+2. Extract the `.zip` file.
+3. Move the folder to `Documents/Arduino/libraries/`.
 
 ---
+
+## Wiring Example
+
+| LCD Pin | Connected to Shift Register Pin |
+|---------|---------------------------------|
+| RS      | O0                              |
+| E       | O1                              |
+| D4      | O2                              |
+| D5      | O4                              |
+| D6      | O5                              |
+| D7      | O6                              |
+
+**Shift register inputs:**
+
+- **SER (data)** → Arduino pin 12
+- **SRCLK (clock)** → Arduino pin 11
+- **RCLK (latch)** → Arduino pin 10
+
+---
+
+## Quick Start Example
+
+```cpp
+#include <LCDShiftView.h>
+
+// Shift Register Pins: data, clock, latch
+LCDShiftView lcd(2, 3, 4); 
+
+void setup() {
+  lcd.begin(16, 2);       // Set LCD size (columns, rows)
+  lcd.print("Hello, World!");
+}
+
+void loop() {}
+```
+
+---
+
+## Custom Pin Mapping (Optional)
+
+If your LCD is wired differently, use setPins():
+
+```cpp
+lcd.setPins(O1, O2, O3, O4, O5, O6); 
+// RS, E, D4, D5, D6, D7 (O0–O7 are valid)
+```
+
+---
+
+## Custom Characters Example
+
+```cpp
+byte smiley[8] = {
+  B00000,
+  B01010,
+  B01010,
+  B00000,
+  B00000,
+  B10001,
+  B01110,
+  B00000
+};
+
+void setup() {
+  lcd.begin(16, 2);
+  lcd.createChar(0, smiley);
+  lcd.setCursor(0, 0);
+  lcd.write(byte(0));
+}
+```
+
+---
+
+## Example Sketches
+
+The library comes with example sketches to help you get started.
+You can find them under:
+
+File → Examples → LCDShiftView
+
+---
+
+## License
+
+This library is released under the MIT License.  
+Feel free to use, modify, and distribute.
+
+---
+
+## Author
+
+Made by Martin4017
