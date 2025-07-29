@@ -44,12 +44,13 @@
 
 | LCD Pin | Connected to Shift Register Pin |
 |---------|---------------------------------|
-| RS      | O0                              |
-| E       | O1                              |
-| D4      | O2                              |
-| D5      | O4                              |
-| D6      | O5                              |
-| D7      | O6                              |
+| RS      | Q0                              |
+| E       | Q1                              |
+| D4      | Q2                              |
+| D5      | Q4                              |
+| D6      | Q5                              |
+| D7      | Q6                              |
+| A       | Q8  (Backlight pin (Optional)   | 
 
 **Shift register inputs:**
 
@@ -82,8 +83,8 @@ void loop() {}
 If your LCD is wired differently, use setPins():
 
 ```cpp
-lcd.setPins(O1, O2, O3, O4, O5, O6); 
-// RS, E, D4, D5, D6, D7 (O0–O7 are valid)
+lcd.setPins(0, 1, 2, 3, 4, 5);
+// RS, E, D4, D5, D6, D7 (Q0–Q6 are valid)
 ```
 
 ---
