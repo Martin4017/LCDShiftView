@@ -91,6 +91,8 @@ lcd.setPins(O1, O2, O3, O4, O5, O6);
 ## Custom Characters Example
 
 ```cpp
+#include <LCDShiftView.h>
+
 byte smiley[8] = {
   B00000,
   B01010,
