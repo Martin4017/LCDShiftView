@@ -50,7 +50,7 @@
 | D5      | Q4                              |
 | D6      | Q5                              |
 | D7      | Q6                              |
-| A       | Q8  (Backlight pin (Optional)   | 
+| A       | Q8  (Backlight pin (Optional))  | 
 
 **Shift register inputs:**
 
