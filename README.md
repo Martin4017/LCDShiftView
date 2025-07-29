@@ -7,14 +7,14 @@
 ## Features
 
 - Control LCD (16x2, 20x4...) via **shift register (74HC595)**.
-- Define any pin mapping from the shift register (O0–O7) to LCD pins.
+- Define any pin mapping from the shift register (Q0–Q6) to LCD pins.
 - Default mapping is:
-  - RS → O0
-  - E   → O1
-  - D4 → O2
-  - D5 → O3
-  - D6 → O4
-  - D7 → O5
+  - RS → Q0
+  - E   → Q1
+  - D4 → Q2
+  - D5 → Q3
+  - D6 → Q4
+  - D7 → Q5
 - Built-in support for:
   - Custom characters.
   - Different LCD sizes.
@@ -84,7 +84,7 @@ If your LCD is wired differently, use setPins():
 
 ```cpp
 lcd.setPins(0, 1, 2, 3, 4, 5);
-// RS, E, D4, D5, D6, D7 (Q0–Q6 are valid)
+// RS, E, D4, D5, D6, D7 (Q0–Q6 are valid) Q7 is Backlight pin. "cannot be change"
 ```
 
 ---
