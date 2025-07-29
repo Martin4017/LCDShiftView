@@ -34,7 +34,7 @@
 ### Manual Installation
 
 1. Download the library from GitHub:  
-   [https://github.com/Martin4017/LCDShiftView](https://github.com/Martin4017/LCDShiftView)
+   [https://github.com/Martin4017/LCDShiftView/releases/tag/1.0.1](https://github.com/Martin4017/LCDShiftView/releases/tag/1.0.1)
 2. Extract the `.zip` file.
 3. Move the folder to `Documents/Arduino/libraries/`.
 
